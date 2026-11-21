@@ -74,3 +74,73 @@ kubectl describe rs nginx-replicaset
 
 # Delete ReplicaSet
 kubectl delete rs nginx-replicaset
+
+------------------------------------------------------------------------
+---------DEPLOYMENT COMMANDS---------
+KUBERNETES DEPLOYMENT – COMMANDS WITH MEANING
+
+1. Describe Deployment
+
+Command:
+kubectl describe deploy nginx-deployment
+
+Meaning:
+To see complete information about the Deployment, such as Pods, replicas, image and events.
+
+2. Scale Deployment
+
+Command:
+kubectl scale deploy nginx-deployment --replicas=5
+
+Meaning:
+To increase or decrease the number of Pods.
+Example: If you have 3 Pods, this command increases them to 5.
+
+3. Update Nginx Image
+
+Command:
+kubectl set image deployment/nginx-deployment nginx=nginx:1.27
+
+Meaning:
+To update the existing Nginx container image to a new version.
+Kubernetes performs a rolling update.
+
+4. Check Rollout Status
+
+Command:
+kubectl rollout status deployment/nginx-deployment
+
+Meaning:
+To check whether the Deployment update is completed successfully.
+
+5. Check Rollout History
+
+Command:
+kubectl rollout history deployment/nginx-deployment
+
+Meaning:
+To see the previous versions or revisions of the Deployment.
+
+6. Rollback Deployment
+
+Command:
+kubectl rollout undo deployment/nginx-deployment
+
+Meaning:
+To return the Deployment to its previous version if the new update has a problem.
+
+7. Restart Deployment
+
+Command:
+kubectl rollout restart deployment/nginx-deployment
+
+Meaning:
+To restart all Pods managed by the Deployment without changing the container image.
+
+8. Delete Deployment
+
+Command:
+kubectl delete -f nginx-deployment.yaml
+
+Meaning:
+To delete the Deployment created using the YAML file. Its managed ReplicaSet and Pods are also deleted.
