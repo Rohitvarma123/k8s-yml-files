@@ -54,3 +54,23 @@ kubectl logs nginx-pod --timestamps=true | head -10
 
 # 19. Display last 10 log lines with timestamps
 kubectl logs nginx-pod --timestamps=true | tail -10
+
+-----------------------------------------------------------------------------
+-------Replica set----------
+# Check ReplicaSet
+kubectl get rs
+
+# Check Pods
+kubectl get pods -o wide
+
+# Scale from 5 to 3
+kubectl scale rs nginx-replicaset --replicas=3
+
+# Scale from 3 to 10
+kubectl scale rs nginx-replicaset --replicas=10
+
+# Describe ReplicaSet
+kubectl describe rs nginx-replicaset
+
+# Delete ReplicaSet
+kubectl delete rs nginx-replicaset
